@@ -73,13 +73,6 @@ def g2(ph,vh,hh,gh,t):
     g2= gh
     return g2
 
-def Tk(ph,hh):
-    N3=24.0*np.exp(-1.62*ph/Mp)*M*hh/Mp*(xi*(0.5*np.exp(0.81*ph/Mp)-1-xi*hh/Mp**2)-lam*hh*hh/(3.0*M*M))
-    N1=-2.0*np.exp(-1.62*ph/Mp)*M*M*((1+xi*h*h/(M*M))*(0.5*np.exp(0.81*ph/Mp)-1-xi*h*h/(Mp*Mp))-lam*hh**4/(3.0*M*M*Mp*Mp))
-    N2=-3.0*np.exp(-1.62*ph/Mp)*M*M*(xi*(np.exp(0.81*ph/Mp)-1-3*xi*h*h/(Mp*Mp))+lam*hh*hh/(3*M*M))
-    T= N1*N2-N3**2
-    return T
-
 "definisikan langkah iterasi"
 h=Mp/(10.0**10)
 
@@ -150,8 +143,8 @@ def Tk(ph,hh):
     N3=24.0*np.exp(-1.62*ph/Mp)*M*hh/Mp*(xi*(0.5*np.exp(0.81*ph/Mp)-1-xi*hh/Mp**2)-lam*hh*hh/(3.0*M*M))
     N1=-2.0*np.exp(-1.62*ph/Mp)*M*M*((1+xi*h*h/(M*M))*(0.5*np.exp(0.81*ph/Mp)-1-xi*h*h/(Mp*Mp))-lam*hh**4/(3.0*M*M*Mp*Mp))
     N2=-3.0*np.exp(-1.62*ph/Mp)*M*M*(xi*(np.exp(0.81*ph/Mp)-1-3*xi*h*h/(Mp*Mp))+lam*hh*hh/(3*M*M))
-    T= N1*N2-N3**2
-    return T
+    Tk= N1*N2-N3**2
+    return Tk
 
 for X, Y, Z in zip(A,B,C):
     sumbu.append([X,Y,Z])
